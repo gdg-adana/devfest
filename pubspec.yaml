@@ -42,6 +42,7 @@ dependencies:
   injectable: ^1.5.3
   freezed_annotation: ^2.2.0
   dartz: ^0.10.1
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:

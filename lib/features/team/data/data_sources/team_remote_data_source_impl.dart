@@ -1,3 +1,4 @@
+import 'package:devfest/core/exceptions/exceptions.dart';
 import 'package:devfest/core/network/firebase/firestore_service.dart';
 import 'package:devfest/features/team/data/data_sources/team_remote_data_source.dart';
 import 'package:devfest/features/team/data/dtos/member_dto.dart';
@@ -17,8 +18,11 @@ class TeamRemoteDataSourceImpl implements TeamRemoteDataSource {
 
       return result.map((snapshot) => MemberDto.fromJson(snapshot.data())).toList();
     } catch (e) {
-      print(e);
-      throw (Exception);
+      throw (FirestoreException(
+        e,
+        stackTrace: StackTrace.current,
+        description: 'Something went wrong during getting members from firestore',
+      ));
     }
   }
 }
