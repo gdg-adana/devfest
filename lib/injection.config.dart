@@ -14,8 +14,9 @@ import 'features/team/data/data_sources/team_remote_data_source.dart' as _i5;
 import 'features/team/data/data_sources/team_remote_data_source_impl.dart'
     as _i6;
 import 'features/team/data/repositories/team_repository_impl.dart' as _i8;
-import 'features/team/domain/repositories/team_repository.dart'
-    as _i7; // ignore_for_file: unnecessary_lambdas
+import 'features/team/domain/repositories/team_repository.dart' as _i7;
+import 'features/team/domain/use_cases/get_team_members_use_case.dart'
+    as _i9; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -37,6 +38,8 @@ _i1.GetIt $initGetIt(
       () => _i6.TeamRemoteDataSourceImpl(get<_i4.FirestoreService>()));
   gh.factory<_i7.TeamRepository>(
       () => _i8.TeamRepositoryImpl(get<_i5.TeamRemoteDataSource>()));
+  gh.factory<_i9.GetTeamMembersUseCase>(
+      () => _i9.GetTeamMembersUseCase(get<_i7.TeamRepository>()));
   return get;
 }
 
