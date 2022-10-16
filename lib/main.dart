@@ -1,4 +1,4 @@
-import 'package:devfest/features/team/data/data_sources/team_remote_data_source.dart';
+import 'package:devfest/features/team/domain/repositories/team_repository.dart';
 import 'package:devfest/firebase_options.dart';
 import 'package:devfest/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -60,8 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final int _counter = 0;
 
   Future<void> _incrementCounter() async {
-    final result = await getIt<TeamRemoteDataSource>().getTeamMembers();
-    print(result);
+    final result = await getIt<TeamRepository>().getMembers();
+    result.fold((l) => print(l), (r) => print(r));
   }
 
   @override
