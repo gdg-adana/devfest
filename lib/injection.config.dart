@@ -5,9 +5,12 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:cloud_firestore/cloud_firestore.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
-import 'package:injectable/injectable.dart'
-    as _i2; // ignore_for_file: unnecessary_lambdas
+import 'package:injectable/injectable.dart' as _i2;
+
+import 'core/network/firebase/firestore_service.dart'
+    as _i4; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -21,5 +24,11 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
+  final firestoreModule = _$FirestoreModule();
+  gh.factory<_i3.FirebaseFirestore>(() => firestoreModule.instance);
+  gh.singleton<_i4.FirestoreService>(
+      _i4.FirestoreService(get<_i3.FirebaseFirestore>()));
   return get;
 }
+
+class _$FirestoreModule extends _i4.FirestoreModule {}

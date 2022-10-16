@@ -1,4 +1,6 @@
+import 'package:devfest/core/network/firebase/firestore_service.dart';
 import 'package:devfest/firebase_options.dart';
+import 'package:devfest/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +9,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  configureDependencies();
   runApp(const MyApp());
 }
 
@@ -54,17 +57,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final int _counter = 0;
 
   void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+    getIt<FirestoreService>().read(collection: 'team');
   }
 
   @override
