@@ -1,4 +1,4 @@
-import 'package:devfest/core/network/firebase/firestore_service.dart';
+import 'package:devfest/features/team/data/data_sources/team_remote_data_source.dart';
 import 'package:devfest/firebase_options.dart';
 import 'package:devfest/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -59,8 +59,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final int _counter = 0;
 
-  void _incrementCounter() {
-    getIt<FirestoreService>().read(collection: 'team');
+  Future<void> _incrementCounter() async {
+    final result = await getIt<TeamRemoteDataSource>().getTeamMembers();
+    print(result);
   }
 
   @override

@@ -9,8 +9,10 @@ import 'package:cloud_firestore/cloud_firestore.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'core/network/firebase/firestore_service.dart'
-    as _i4; // ignore_for_file: unnecessary_lambdas
+import 'core/network/firebase/firestore_service.dart' as _i4;
+import 'features/team/data/data_sources/team_remote_data_source.dart' as _i5;
+import 'features/team/data/data_sources/team_remote_data_source_impl.dart'
+    as _i6; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -28,6 +30,8 @@ _i1.GetIt $initGetIt(
   gh.factory<_i3.FirebaseFirestore>(() => firestoreModule.instance);
   gh.singleton<_i4.FirestoreService>(
       _i4.FirestoreService(get<_i3.FirebaseFirestore>()));
+  gh.factory<_i5.TeamRemoteDataSource>(
+      () => _i6.TeamRemoteDataSourceImpl(get<_i4.FirestoreService>()));
   return get;
 }
 
