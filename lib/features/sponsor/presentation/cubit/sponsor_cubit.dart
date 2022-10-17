@@ -11,7 +11,7 @@ class SponsorCubit extends Cubit<SponsorState> {
 
   final GetSponsorsUseCase _getSponsorsUseCase;
 
-  Future<void> getsSponsors() async {
+  Future<void> getSponsors() async {
     emit(state.copyWith(status: SponsorStatus.loading));
     final result = await _getSponsorsUseCase(const NoParams());
     result.fold(
