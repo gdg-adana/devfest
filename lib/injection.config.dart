@@ -14,14 +14,16 @@ import 'features/sponsor/data/data_sources/sponsor_remote_data_source.dart'
     as _i5;
 import 'features/sponsor/data/data_sources/sponsor_remote_data_source_impl.dart'
     as _i6;
-import 'features/team/data/data_sources/team_remote_data_source.dart' as _i7;
+import 'features/sponsor/data/repositories/sponsor_repository_impl.dart' as _i8;
+import 'features/sponsor/domain/repositories/sponsor_repository.dart' as _i7;
+import 'features/team/data/data_sources/team_remote_data_source.dart' as _i9;
 import 'features/team/data/data_sources/team_remote_data_source_impl.dart'
-    as _i8;
-import 'features/team/data/repositories/team_repository_impl.dart' as _i10;
-import 'features/team/domain/repositories/team_repository.dart' as _i9;
-import 'features/team/domain/use_cases/get_team_members_use_case.dart' as _i11;
+    as _i10;
+import 'features/team/data/repositories/team_repository_impl.dart' as _i12;
+import 'features/team/domain/repositories/team_repository.dart' as _i11;
+import 'features/team/domain/use_cases/get_team_members_use_case.dart' as _i13;
 import 'features/team/presentation/cubit/team_cubit.dart'
-    as _i12; // ignore_for_file: unnecessary_lambdas
+    as _i14; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -41,14 +43,16 @@ _i1.GetIt $initGetIt(
       _i4.FirestoreService(get<_i3.FirebaseFirestore>()));
   gh.factory<_i5.SponsorRemoteDataSource>(
       () => _i6.SponsorRemoteDataSourceImpl(get<_i4.FirestoreService>()));
-  gh.factory<_i7.TeamRemoteDataSource>(
-      () => _i8.TeamRemoteDataSourceImpl(get<_i4.FirestoreService>()));
-  gh.factory<_i9.TeamRepository>(
-      () => _i10.TeamRepositoryImpl(get<_i7.TeamRemoteDataSource>()));
-  gh.factory<_i11.GetTeamMembersUseCase>(
-      () => _i11.GetTeamMembersUseCase(get<_i9.TeamRepository>()));
-  gh.factory<_i12.TeamCubit>(
-      () => _i12.TeamCubit(get<_i11.GetTeamMembersUseCase>()));
+  gh.factory<_i7.SponsorRepository>(
+      () => _i8.SponsorRepositoryImpl(get<_i5.SponsorRemoteDataSource>()));
+  gh.factory<_i9.TeamRemoteDataSource>(
+      () => _i10.TeamRemoteDataSourceImpl(get<_i4.FirestoreService>()));
+  gh.factory<_i11.TeamRepository>(
+      () => _i12.TeamRepositoryImpl(get<_i9.TeamRemoteDataSource>()));
+  gh.factory<_i13.GetTeamMembersUseCase>(
+      () => _i13.GetTeamMembersUseCase(get<_i11.TeamRepository>()));
+  gh.factory<_i14.TeamCubit>(
+      () => _i14.TeamCubit(get<_i13.GetTeamMembersUseCase>()));
   return get;
 }
 
