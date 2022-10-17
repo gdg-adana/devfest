@@ -10,22 +10,29 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'core/network/firebase/firestore_service.dart' as _i4;
+import 'features/faq/data/data_sources/faq_remote_data_source.dart' as _i13;
+import 'features/faq/data/data_sources/faq_remote_data_source_impl.dart'
+    as _i14;
+import 'features/faq/data/repositories/faq_repository_impl.dart' as _i16;
+import 'features/faq/domain/repositories/faq_repository.dart' as _i15;
+import 'features/faq/domain/use_cases/get_faq_use_case.dart' as _i17;
+import 'features/faq/presentation/cubit/faq_cubit.dart' as _i22;
 import 'features/sponsor/data/data_sources/sponsor_remote_data_source.dart'
     as _i5;
 import 'features/sponsor/data/data_sources/sponsor_remote_data_source_impl.dart'
     as _i6;
 import 'features/sponsor/data/repositories/sponsor_repository_impl.dart' as _i8;
 import 'features/sponsor/domain/repositories/sponsor_repository.dart' as _i7;
-import 'features/sponsor/domain/use_cases/get_sponsors_use_case.dart' as _i13;
-import 'features/sponsor/presentation/cubit/sponsor_cubit.dart' as _i15;
+import 'features/sponsor/domain/use_cases/get_sponsors_use_case.dart' as _i18;
+import 'features/sponsor/presentation/cubit/sponsor_cubit.dart' as _i20;
 import 'features/team/data/data_sources/team_remote_data_source.dart' as _i9;
 import 'features/team/data/data_sources/team_remote_data_source_impl.dart'
     as _i10;
 import 'features/team/data/repositories/team_repository_impl.dart' as _i12;
 import 'features/team/domain/repositories/team_repository.dart' as _i11;
-import 'features/team/domain/use_cases/get_team_members_use_case.dart' as _i14;
+import 'features/team/domain/use_cases/get_team_members_use_case.dart' as _i19;
 import 'features/team/presentation/cubit/team_cubit.dart'
-    as _i16; // ignore_for_file: unnecessary_lambdas
+    as _i21; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -51,14 +58,21 @@ _i1.GetIt $initGetIt(
       () => _i10.TeamRemoteDataSourceImpl(get<_i4.FirestoreService>()));
   gh.factory<_i11.TeamRepository>(
       () => _i12.TeamRepositoryImpl(get<_i9.TeamRemoteDataSource>()));
-  gh.factory<_i13.GetSponsorsUseCase>(
-      () => _i13.GetSponsorsUseCase(get<_i7.SponsorRepository>()));
-  gh.factory<_i14.GetTeamMembersUseCase>(
-      () => _i14.GetTeamMembersUseCase(get<_i11.TeamRepository>()));
-  gh.factory<_i15.SponsorCubit>(
-      () => _i15.SponsorCubit(get<_i13.GetSponsorsUseCase>()));
-  gh.factory<_i16.TeamCubit>(
-      () => _i16.TeamCubit(get<_i14.GetTeamMembersUseCase>()));
+  gh.factory<_i13.FAQRemoteDataSource>(
+      () => _i14.FAQRemoteDataSourceImpl(get<_i4.FirestoreService>()));
+  gh.factory<_i15.FAQRepository>(
+      () => _i16.FAQRepositoryImpl(get<_i13.FAQRemoteDataSource>()));
+  gh.factory<_i17.GetFAQUseCase>(
+      () => _i17.GetFAQUseCase(get<_i15.FAQRepository>()));
+  gh.factory<_i18.GetSponsorsUseCase>(
+      () => _i18.GetSponsorsUseCase(get<_i7.SponsorRepository>()));
+  gh.factory<_i19.GetTeamMembersUseCase>(
+      () => _i19.GetTeamMembersUseCase(get<_i11.TeamRepository>()));
+  gh.factory<_i20.SponsorCubit>(
+      () => _i20.SponsorCubit(get<_i18.GetSponsorsUseCase>()));
+  gh.factory<_i21.TeamCubit>(
+      () => _i21.TeamCubit(get<_i19.GetTeamMembersUseCase>()));
+  gh.factory<_i22.FAQCubit>(() => _i22.FAQCubit(get<_i17.GetFAQUseCase>()));
   return get;
 }
 
