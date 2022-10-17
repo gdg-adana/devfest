@@ -17,6 +17,7 @@ import 'features/sponsor/data/data_sources/sponsor_remote_data_source_impl.dart'
 import 'features/sponsor/data/repositories/sponsor_repository_impl.dart' as _i8;
 import 'features/sponsor/domain/repositories/sponsor_repository.dart' as _i7;
 import 'features/sponsor/domain/use_cases/get_sponsors_use_case.dart' as _i13;
+import 'features/sponsor/presentation/cubit/sponsor_cubit.dart' as _i15;
 import 'features/team/data/data_sources/team_remote_data_source.dart' as _i9;
 import 'features/team/data/data_sources/team_remote_data_source_impl.dart'
     as _i10;
@@ -24,7 +25,7 @@ import 'features/team/data/repositories/team_repository_impl.dart' as _i12;
 import 'features/team/domain/repositories/team_repository.dart' as _i11;
 import 'features/team/domain/use_cases/get_team_members_use_case.dart' as _i14;
 import 'features/team/presentation/cubit/team_cubit.dart'
-    as _i15; // ignore_for_file: unnecessary_lambdas
+    as _i16; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -54,8 +55,10 @@ _i1.GetIt $initGetIt(
       () => _i13.GetSponsorsUseCase(get<_i7.SponsorRepository>()));
   gh.factory<_i14.GetTeamMembersUseCase>(
       () => _i14.GetTeamMembersUseCase(get<_i11.TeamRepository>()));
-  gh.factory<_i15.TeamCubit>(
-      () => _i15.TeamCubit(get<_i14.GetTeamMembersUseCase>()));
+  gh.factory<_i15.SponsorCubit>(
+      () => _i15.SponsorCubit(get<_i13.GetSponsorsUseCase>()));
+  gh.factory<_i16.TeamCubit>(
+      () => _i16.TeamCubit(get<_i14.GetTeamMembersUseCase>()));
   return get;
 }
 

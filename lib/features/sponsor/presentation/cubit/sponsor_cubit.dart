@@ -3,7 +3,9 @@ import 'package:devfest/core/use_case.dart';
 import 'package:devfest/features/sponsor/domain/use_cases/get_sponsors_use_case.dart';
 import 'package:devfest/features/sponsor/presentation/cubit/cubit.dart';
 import 'package:devfest/features/sponsor/presentation/cubit/sponsor_state.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class SponsorCubit extends Cubit<SponsorState> {
   SponsorCubit(this._getSponsorsUseCase) : super(SponsorState.initial());
 
