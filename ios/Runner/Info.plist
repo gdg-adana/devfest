@@ -47,5 +47,14 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+		<array>
+  				<string>https</string>
+    			<string>http</string>
+    			<string>mailto</string>
+				<string>instagram</string>
+				<string>twitter</string>
+				<string>linkedin</string>
+		</array>
 </dict>
 </plist>
