@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:devfest/features/home/widgets/event_banner.dart';
 import 'package:devfest/features/home/widgets/module_card.dart';
+import 'package:devfest/features/team/presentation/pages/team_screen.dart';
 import 'package:devfest/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +19,17 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> get modules => [
         ModuleCard(onTap: () {}, text: Constants.agenda, iconColor: Colors.red, iconData: Icons.query_builder),
         ModuleCard(onTap: () {}, text: Constants.speakers, iconColor: Colors.green, iconData: Icons.person),
-        ModuleCard(onTap: () {}, text: Constants.team, iconColor: Colors.yellow, iconData: Icons.group),
+        ModuleCard(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const TeamScreen(),
+                ),
+              );
+            },
+            text: Constants.team,
+            iconColor: Colors.yellow,
+            iconData: Icons.group),
         ModuleCard(onTap: () {}, text: Constants.sponsors, iconColor: Colors.purple, iconData: Icons.attach_money),
         ModuleCard(onTap: () {}, text: Constants.faq, iconColor: Colors.brown, iconData: Icons.quiz),
         ModuleCard(
