@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:devfest/core/use_case.dart';
-import 'package:devfest/features/agenda/domain/use_cases/get_agenda_use_case.dart';
+import 'package:devfest/core/use_cases/get_agenda_use_case.dart';
 import 'package:devfest/features/agenda/presentation/cubit/cubit.dart';
 import 'package:injectable/injectable.dart';
 
