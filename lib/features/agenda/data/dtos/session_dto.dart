@@ -10,7 +10,7 @@ abstract class SessionDto with _$SessionDto {
     required String title,
     required String startTime,
     required String endTime,
-    SpeakerDto? speakerDto,
+    @JsonKey(name: 'speaker') SpeakerDto? speakerDto,
     String? desc,
   }) = _SessionDto;
   factory SessionDto.fromJson(Map<String, dynamic> json) => _$SessionDtoFromJson(json);

@@ -23,6 +23,7 @@ mixin _$SessionDto {
   String get title => throw _privateConstructorUsedError;
   String get startTime => throw _privateConstructorUsedError;
   String get endTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'speaker')
   SpeakerDto? get speakerDto => throw _privateConstructorUsedError;
   String? get desc => throw _privateConstructorUsedError;
 
@@ -42,7 +43,7 @@ abstract class $SessionDtoCopyWith<$Res> {
       {String title,
       String startTime,
       String endTime,
-      SpeakerDto? speakerDto,
+      @JsonKey(name: 'speaker') SpeakerDto? speakerDto,
       String? desc});
 
   $SpeakerDtoCopyWith<$Res>? get speakerDto;
@@ -116,7 +117,7 @@ abstract class _$$_SessionDtoCopyWith<$Res>
       {String title,
       String startTime,
       String endTime,
-      SpeakerDto? speakerDto,
+      @JsonKey(name: 'speaker') SpeakerDto? speakerDto,
       String? desc});
 
   @override
@@ -172,7 +173,7 @@ class _$_SessionDto implements _SessionDto {
       {required this.title,
       required this.startTime,
       required this.endTime,
-      this.speakerDto,
+      @JsonKey(name: 'speaker') this.speakerDto,
       this.desc});
 
   factory _$_SessionDto.fromJson(Map<String, dynamic> json) =>
@@ -185,6 +186,7 @@ class _$_SessionDto implements _SessionDto {
   @override
   final String endTime;
   @override
+  @JsonKey(name: 'speaker')
   final SpeakerDto? speakerDto;
   @override
   final String? desc;
@@ -232,7 +234,7 @@ abstract class _SessionDto implements SessionDto {
       {required final String title,
       required final String startTime,
       required final String endTime,
-      final SpeakerDto? speakerDto,
+      @JsonKey(name: 'speaker') final SpeakerDto? speakerDto,
       final String? desc}) = _$_SessionDto;
 
   factory _SessionDto.fromJson(Map<String, dynamic> json) =
@@ -245,6 +247,7 @@ abstract class _SessionDto implements SessionDto {
   @override
   String get endTime;
   @override
+  @JsonKey(name: 'speaker')
   SpeakerDto? get speakerDto;
   @override
   String? get desc;
