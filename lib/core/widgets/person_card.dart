@@ -1,3 +1,6 @@
+import 'package:devfest/core/services/url/url_service.dart';
+import 'package:devfest/injection.dart';
+import 'package:devfest/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -62,11 +65,21 @@ class PersonCard extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          getIt<UrlService>().launchURl(
+                            webUrl: Constants.linkedinWebUrlWithUsername(userName: linkedin),
+                            nativeUrl: Constants.linkedinNativeUrlWithUsername(userName: linkedin),
+                          );
+                        },
                         icon: const FaIcon(FontAwesomeIcons.linkedin),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          getIt<UrlService>().launchURl(
+                            webUrl: Constants.twitterWebUrlWithUsername(userName: twitter),
+                            nativeUrl: Constants.twitterNativeUrlWithUsername(userName: twitter),
+                          );
+                        },
                         icon: const FaIcon(FontAwesomeIcons.twitter),
                       ),
                     ],

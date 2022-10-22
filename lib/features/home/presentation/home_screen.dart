@@ -1,14 +1,15 @@
 import 'dart:io';
 
+import 'package:devfest/core/services/url/url_service.dart';
 import 'package:devfest/features/faq/presentation/pages/faq_screen.dart';
 import 'package:devfest/features/home/widgets/event_banner.dart';
 import 'package:devfest/features/home/widgets/module_card.dart';
 import 'package:devfest/features/speaker/presentation/speaker_screen.dart';
 import 'package:devfest/features/team/presentation/pages/team_screen.dart';
+import 'package:devfest/injection.dart';
 import 'package:devfest/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,6 +19,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late final UrlService _urlService;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _urlService = getIt<UrlService>();
+  }
+
   List<Widget> get modules => [
         ModuleCard(onTap: () {}, text: Constants.agenda, iconColor: Colors.red, iconData: Icons.query_builder),
         ModuleCard(
@@ -56,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
             iconData: Icons.quiz),
         ModuleCard(
             onTap: () {
-              _launchURl(
+              _urlService.launchURl(
                 webUrl: Platform.isIOS ? Constants.appleMapsUrl : Constants.googleMapsUrl,
                 nativeUrl: Platform.isIOS ? Constants.appleMapsUrl : Constants.googleMapsWebUrl,
               );
@@ -68,43 +78,35 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> get icons => [
         IconButton(
           onPressed: () {
-            _launchURl(nativeUrl: Constants.instagramNativeUrl, webUrl: Constants.instagramWebUrl);
+            _urlService.launchURl(nativeUrl: Constants.instagramNativeUrl, webUrl: Constants.instagramWebUrl);
           },
           icon: const FaIcon(FontAwesomeIcons.instagram),
         ),
         IconButton(
           onPressed: () {
-            _launchURl(nativeUrl: Constants.twitterNativeUrl, webUrl: Constants.twitterWebUrl);
+            _urlService.launchURl(nativeUrl: Constants.twitterNativeUrl, webUrl: Constants.twitterWebUrl);
           },
           icon: const FaIcon(FontAwesomeIcons.twitter),
         ),
         IconButton(
           onPressed: () {
-            _launchURl(nativeUrl: Constants.linkedinNativeUrl, webUrl: Constants.linkedinWebUrl);
+            _urlService.launchURl(nativeUrl: Constants.linkedinNativeUrl, webUrl: Constants.linkedinWebUrl);
           },
           icon: const FaIcon(FontAwesomeIcons.linkedin),
         ),
         IconButton(
           onPressed: () {
-            _launchURl(nativeUrl: Constants.webUrl, webUrl: Constants.webUrl);
+            _urlService.launchURl(nativeUrl: Constants.webUrl, webUrl: Constants.webUrl);
           },
           icon: const FaIcon(FontAwesomeIcons.link),
         ),
         IconButton(
           onPressed: () {
-            _launchURl(nativeUrl: Constants.mailUrl, webUrl: Constants.mailUrl);
+            _urlService.launchURl(nativeUrl: Constants.mailUrl, webUrl: Constants.mailUrl);
           },
           icon: const FaIcon(FontAwesomeIcons.envelope),
         ),
       ];
-
-  _launchURl({required String webUrl, required String nativeUrl}) async {
-    try {
-      await launchUrl(Uri.parse(nativeUrl));
-    } catch (e) {
-      await launchUrl(Uri.parse(webUrl));
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

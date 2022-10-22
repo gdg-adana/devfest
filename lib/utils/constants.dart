@@ -22,12 +22,19 @@ class Constants {
   static const bannerPath = 'assets/images/devfest_logo.png';
 
   // urls
-  static const instagramNativeUrl = 'instagram://user?username=gdg_adana';
-  static const instagramWebUrl = 'https://www.instagram.com/gdg_adana';
 
-  static const twitterNativeUrl = 'twitter://user?screen_name=gdg_adana';
-  static const twitterWebUrl = 'https://www.twitter.com/gdg_adana';
+  static instagramNativeUrlWithUsername({required String userName}) => 'instagram://user?username=$userName';
+  static instagramWebUrlWithUsername({required String userName}) => 'https://www.instagram.com/$userName';
+  static final instagramNativeUrl = instagramNativeUrlWithUsername(userName: 'gdg_adana');
+  static final instagramWebUrl = instagramWebUrlWithUsername(userName: 'gdg_adana');
 
+  static twitterNativeUrlWithUsername({required String userName}) => 'twitter://user?screen_name=$userName';
+  static twitterWebUrlWithUsername({required String userName}) => 'https://www.twitter.com/$userName';
+  static final twitterNativeUrl = twitterNativeUrlWithUsername(userName: 'gdg_adana');
+  static final twitterWebUrl = twitterWebUrlWithUsername(userName: 'gdg_adana');
+
+  static linkedinNativeUrlWithUsername({required String userName}) => 'linkedin://profile/$userName';
+  static linkedinWebUrlWithUsername({required String userName}) => 'https://www.linkedin.com/in/$userName';
   static const linkedinNativeUrl = 'linkedin://company/gdg-adana';
   static const linkedinWebUrl = 'https://www.linkedin.com/company/gdg-adana/';
 
