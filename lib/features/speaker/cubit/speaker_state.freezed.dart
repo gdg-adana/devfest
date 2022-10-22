@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SpeakerState {
-  SpeakarStatus get status => throw _privateConstructorUsedError;
+  SpeakerStatus get status => throw _privateConstructorUsedError;
   List<Speaker>? get speakers => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
@@ -31,7 +31,7 @@ abstract class $SpeakerStateCopyWith<$Res> {
           SpeakerState value, $Res Function(SpeakerState) then) =
       _$SpeakerStateCopyWithImpl<$Res, SpeakerState>;
   @useResult
-  $Res call({SpeakarStatus status, List<Speaker>? speakers, String? error});
+  $Res call({SpeakerStatus status, List<Speaker>? speakers, String? error});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$SpeakerStateCopyWithImpl<$Res, $Val extends SpeakerState>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SpeakarStatus,
+              as SpeakerStatus,
       speakers: freezed == speakers
           ? _value.speakers
           : speakers // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$_SpeakerStateCopyWith<$Res>
       __$$_SpeakerStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SpeakarStatus status, List<Speaker>? speakers, String? error});
+  $Res call({SpeakerStatus status, List<Speaker>? speakers, String? error});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class __$$_SpeakerStateCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SpeakarStatus,
+              as SpeakerStatus,
       speakers: freezed == speakers
           ? _value._speakers
           : speakers // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ class _$_SpeakerState implements _SpeakerState {
       : _speakers = speakers;
 
   @override
-  final SpeakarStatus status;
+  final SpeakerStatus status;
   final List<Speaker>? _speakers;
   @override
   List<Speaker>? get speakers {
@@ -160,12 +160,12 @@ class _$_SpeakerState implements _SpeakerState {
 
 abstract class _SpeakerState implements SpeakerState {
   const factory _SpeakerState(
-      {required final SpeakarStatus status,
+      {required final SpeakerStatus status,
       final List<Speaker>? speakers,
       final String? error}) = _$_SpeakerState;
 
   @override
-  SpeakarStatus get status;
+  SpeakerStatus get status;
   @override
   List<Speaker>? get speakers;
   @override
