@@ -1,5 +1,5 @@
+import 'package:devfest/core/widgets/person_list.dart';
 import 'package:devfest/features/team/presentation/cubit/cubit.dart';
-import 'package:devfest/features/team/presentation/widgets/team_list.dart';
 import 'package:devfest/injection.dart';
 import 'package:devfest/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class _TeamScreenState extends State<TeamScreen> {
                     child: Text(state.error!),
                   );
                 } else if (state.status == TeamStatus.loaded) {
-                  return TeamList(
+                  return PersonList(
                     members: state.members!,
                   );
                 }
