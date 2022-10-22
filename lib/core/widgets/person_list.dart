@@ -8,7 +8,7 @@ class PersonList extends StatelessWidget {
     Key? key,
     this.members,
     this.speakers,
-  })  : assert(members == null && speakers == null),
+  })  : assert(members != null || speakers != null),
         super(key: key);
 
   final List<Member>? members;
@@ -35,7 +35,9 @@ class PersonList extends StatelessWidget {
                 name: speakers![index].name,
                 image: speakers![index].image,
                 linkedin: speakers![index].linkedin!,
-                twitter: speakers![index].twitter!),
+                twitter: speakers![index].twitter!,
+                company: speakers![index].company,
+              ),
       ),
     );
   }

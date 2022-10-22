@@ -11,7 +11,7 @@ class PersonCard extends StatelessWidget {
     this.title,
     this.company,
     this.onTap,
-  })  : assert(title == null && company == null),
+  })  : assert(title != null || company != null),
         super(key: key);
 
   final String name;

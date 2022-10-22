@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:devfest/features/home/widgets/event_banner.dart';
 import 'package:devfest/features/home/widgets/module_card.dart';
+import 'package:devfest/features/speaker/presentation/speaker_screen.dart';
 import 'package:devfest/features/team/presentation/pages/team_screen.dart';
 import 'package:devfest/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> get modules => [
         ModuleCard(onTap: () {}, text: Constants.agenda, iconColor: Colors.red, iconData: Icons.query_builder),
-        ModuleCard(onTap: () {}, text: Constants.speakers, iconColor: Colors.green, iconData: Icons.person),
+        ModuleCard(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SpeakerScreen(),
+                ),
+              );
+            },
+            text: Constants.speakers,
+            iconColor: Colors.green,
+            iconData: Icons.person),
         ModuleCard(
             onTap: () {
               Navigator.of(context).push(
