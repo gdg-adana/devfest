@@ -10,13 +10,13 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'core/network/firebase/firestore_service.dart' as _i4;
+import 'core/use_cases/get_agenda_use_case.dart' as _i21;
 import 'features/agenda/data/data_sources/agenda_remote_data_source.dart'
     as _i13;
 import 'features/agenda/data/data_sources/agenda_remote_data_source_impl.dart'
     as _i14;
 import 'features/agenda/data/repositories/agenda_repository_impl.dart' as _i16;
 import 'features/agenda/domain/repositories/agenda_repository.dart' as _i15;
-import 'features/agenda/domain/use_cases/get_agenda_use_case.dart' as _i21;
 import 'features/agenda/presentation/cubit/agenda_cubit.dart' as _i27;
 import 'features/faq/data/data_sources/faq_remote_data_source.dart' as _i17;
 import 'features/faq/data/data_sources/faq_remote_data_source_impl.dart'
