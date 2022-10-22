@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:devfest/features/faq/presentation/pages/faq_screen.dart';
 import 'package:devfest/features/home/widgets/event_banner.dart';
 import 'package:devfest/features/home/widgets/module_card.dart';
 import 'package:devfest/features/speaker/presentation/speaker_screen.dart';
@@ -42,7 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
             iconColor: Colors.yellow,
             iconData: Icons.group),
         ModuleCard(onTap: () {}, text: Constants.sponsors, iconColor: Colors.purple, iconData: Icons.attach_money),
-        ModuleCard(onTap: () {}, text: Constants.faq, iconColor: Colors.brown, iconData: Icons.quiz),
+        ModuleCard(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const FAQScreen(),
+                ),
+              );
+            },
+            text: Constants.faq,
+            iconColor: Colors.brown,
+            iconData: Icons.quiz),
         ModuleCard(
             onTap: () {
               _launchURl(
