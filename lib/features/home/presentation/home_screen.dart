@@ -5,6 +5,7 @@ import 'package:devfest/features/faq/presentation/pages/faq_screen.dart';
 import 'package:devfest/features/home/widgets/event_banner.dart';
 import 'package:devfest/features/home/widgets/module_card.dart';
 import 'package:devfest/features/speaker/presentation/speaker_screen.dart';
+import 'package:devfest/features/sponsor/presentation/pages/sponsor_screen.dart';
 import 'package:devfest/features/team/presentation/pages/team_screen.dart';
 import 'package:devfest/injection.dart';
 import 'package:devfest/utils/constants.dart';
@@ -52,7 +53,17 @@ class _HomeScreenState extends State<HomeScreen> {
             text: Constants.team,
             iconColor: Colors.yellow,
             iconData: Icons.group),
-        ModuleCard(onTap: () {}, text: Constants.sponsors, iconColor: Colors.purple, iconData: Icons.attach_money),
+        ModuleCard(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SponsorScreen(),
+                ),
+              );
+            },
+            text: Constants.sponsors,
+            iconColor: Colors.purple,
+            iconData: Icons.attach_money),
         ModuleCard(
             onTap: () {
               Navigator.of(context).push(
