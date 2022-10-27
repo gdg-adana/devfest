@@ -1,3 +1,4 @@
+import 'package:devfest/core/services/url/url_service.dart';
 import 'package:devfest/features/sponsor/presentation/cubit/cubit.dart';
 import 'package:devfest/injection.dart';
 import 'package:devfest/utils/constants.dart';
@@ -37,21 +38,39 @@ class _SponsorScreenState extends State<SponsorScreen> {
               } else if (state.status == SponsorStatus.error) {
                 return Center(child: Text(state.error!));
               } else if (state.status == SponsorStatus.loaded) {
-                return ListView.builder(
+                return ListView.separated(
+                  separatorBuilder: (context, index) => const Divider(),
                   itemCount: state.sponsors!.length,
-                  itemBuilder: (context, index) => SizedBox(
-                    height: 200,
-                    child: Card(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      elevation: 5,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.network(
-                          state.sponsors![index].image,
-                          fit: BoxFit.cover,
+                  itemBuilder: (context, index) => Column(
+                    children: [
+                      Text(
+                        state.sponsors![index].type,
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black.withOpacity(0.75),
                         ),
                       ),
-                    ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          final url = state.sponsors![index].url;
+                          getIt<UrlService>().launchURl(webUrl: url, nativeUrl: url);
+                        },
+                        child: Card(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                          elevation: 10,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.network(
+                              state.sponsors![index].image,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               }
