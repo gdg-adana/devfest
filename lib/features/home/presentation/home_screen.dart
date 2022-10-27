@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:devfest/core/services/url/url_service.dart';
+import 'package:devfest/features/agenda/presentation/pages/agenda_screen.dart';
 import 'package:devfest/features/faq/presentation/pages/faq_screen.dart';
 import 'package:devfest/features/home/widgets/event_banner.dart';
 import 'package:devfest/features/home/widgets/module_card.dart';
@@ -30,7 +31,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> get modules => [
-        ModuleCard(onTap: () {}, text: Constants.agenda, iconColor: Colors.red, iconData: Icons.query_builder),
+        ModuleCard(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AgendaScreen(),
+                ),
+              );
+            },
+            text: Constants.agenda,
+            iconColor: Colors.red,
+            iconData: Icons.query_builder),
         ModuleCard(
             onTap: () {
               Navigator.of(context).push(
