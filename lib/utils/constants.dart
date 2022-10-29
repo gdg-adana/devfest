@@ -17,6 +17,8 @@ class Constants {
   static const sponsors = "Sponsorlar";
   static const faq = "SSS";
   static const locateUs = "Konum";
+  static const speaker = "Konuşmacı";
+  static const sessionDetail = "Konuşma Detayı";
 
   // assets path
   static const bannerPath = 'assets/images/devfest_logo.png';
