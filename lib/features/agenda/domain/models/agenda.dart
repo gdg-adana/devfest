@@ -13,6 +13,9 @@ abstract class Agenda with _$Agenda {
 
   factory Agenda.fromDto(AgendaDto dto) => Agenda(
         day: dto.day,
-        sessions: dto.sessions.map((sessionDto) => Session.fromDto(sessionDto)).toList(),
+        sessions: dto.sessions.map((sessionDto) => Session.fromDto(sessionDto)).toList()
+          ..sort(
+            (a, b) => a.order.compareTo(b.order),
+          ),
       );
 }

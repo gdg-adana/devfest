@@ -10,6 +10,7 @@ abstract class Session with _$Session {
     required String title,
     required String startTime,
     required String endTime,
+    required int order,
     Speaker? speaker,
     String? desc,
   }) = _Session;
@@ -18,6 +19,7 @@ abstract class Session with _$Session {
         title: dto.title,
         startTime: dto.startTime,
         endTime: dto.endTime,
+        order: dto.order,
         speaker: dto.speakerDto == null ? null : Speaker.fromDto(dto.speakerDto!),
         desc: dto.desc,
       );

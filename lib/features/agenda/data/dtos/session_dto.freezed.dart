@@ -23,6 +23,7 @@ mixin _$SessionDto {
   String get title => throw _privateConstructorUsedError;
   String get startTime => throw _privateConstructorUsedError;
   String get endTime => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
   @JsonKey(name: 'speaker')
   SpeakerDto? get speakerDto => throw _privateConstructorUsedError;
   String? get desc => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $SessionDtoCopyWith<$Res> {
       {String title,
       String startTime,
       String endTime,
+      int order,
       @JsonKey(name: 'speaker') SpeakerDto? speakerDto,
       String? desc});
 
@@ -65,6 +67,7 @@ class _$SessionDtoCopyWithImpl<$Res, $Val extends SessionDto>
     Object? title = null,
     Object? startTime = null,
     Object? endTime = null,
+    Object? order = null,
     Object? speakerDto = freezed,
     Object? desc = freezed,
   }) {
@@ -81,6 +84,10 @@ class _$SessionDtoCopyWithImpl<$Res, $Val extends SessionDto>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as String,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
       speakerDto: freezed == speakerDto
           ? _value.speakerDto
           : speakerDto // ignore: cast_nullable_to_non_nullable
@@ -117,6 +124,7 @@ abstract class _$$_SessionDtoCopyWith<$Res>
       {String title,
       String startTime,
       String endTime,
+      int order,
       @JsonKey(name: 'speaker') SpeakerDto? speakerDto,
       String? desc});
 
@@ -138,6 +146,7 @@ class __$$_SessionDtoCopyWithImpl<$Res>
     Object? title = null,
     Object? startTime = null,
     Object? endTime = null,
+    Object? order = null,
     Object? speakerDto = freezed,
     Object? desc = freezed,
   }) {
@@ -154,6 +163,10 @@ class __$$_SessionDtoCopyWithImpl<$Res>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as String,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
       speakerDto: freezed == speakerDto
           ? _value.speakerDto
           : speakerDto // ignore: cast_nullable_to_non_nullable
@@ -173,6 +186,7 @@ class _$_SessionDto implements _SessionDto {
       {required this.title,
       required this.startTime,
       required this.endTime,
+      required this.order,
       @JsonKey(name: 'speaker') this.speakerDto,
       this.desc});
 
@@ -186,6 +200,8 @@ class _$_SessionDto implements _SessionDto {
   @override
   final String endTime;
   @override
+  final int order;
+  @override
   @JsonKey(name: 'speaker')
   final SpeakerDto? speakerDto;
   @override
@@ -193,7 +209,7 @@ class _$_SessionDto implements _SessionDto {
 
   @override
   String toString() {
-    return 'SessionDto(title: $title, startTime: $startTime, endTime: $endTime, speakerDto: $speakerDto, desc: $desc)';
+    return 'SessionDto(title: $title, startTime: $startTime, endTime: $endTime, order: $order, speakerDto: $speakerDto, desc: $desc)';
   }
 
   @override
@@ -205,6 +221,7 @@ class _$_SessionDto implements _SessionDto {
             (identical(other.startTime, startTime) ||
                 other.startTime == startTime) &&
             (identical(other.endTime, endTime) || other.endTime == endTime) &&
+            (identical(other.order, order) || other.order == order) &&
             (identical(other.speakerDto, speakerDto) ||
                 other.speakerDto == speakerDto) &&
             (identical(other.desc, desc) || other.desc == desc));
@@ -212,8 +229,8 @@ class _$_SessionDto implements _SessionDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, title, startTime, endTime, speakerDto, desc);
+  int get hashCode => Object.hash(
+      runtimeType, title, startTime, endTime, order, speakerDto, desc);
 
   @JsonKey(ignore: true)
   @override
@@ -234,6 +251,7 @@ abstract class _SessionDto implements SessionDto {
       {required final String title,
       required final String startTime,
       required final String endTime,
+      required final int order,
       @JsonKey(name: 'speaker') final SpeakerDto? speakerDto,
       final String? desc}) = _$_SessionDto;
 
@@ -246,6 +264,8 @@ abstract class _SessionDto implements SessionDto {
   String get startTime;
   @override
   String get endTime;
+  @override
+  int get order;
   @override
   @JsonKey(name: 'speaker')
   SpeakerDto? get speakerDto;

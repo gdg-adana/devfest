@@ -19,6 +19,7 @@ mixin _$Session {
   String get title => throw _privateConstructorUsedError;
   String get startTime => throw _privateConstructorUsedError;
   String get endTime => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
   Speaker? get speaker => throw _privateConstructorUsedError;
   String? get desc => throw _privateConstructorUsedError;
 
@@ -35,6 +36,7 @@ abstract class $SessionCopyWith<$Res> {
       {String title,
       String startTime,
       String endTime,
+      int order,
       Speaker? speaker,
       String? desc});
 
@@ -57,6 +59,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? title = null,
     Object? startTime = null,
     Object? endTime = null,
+    Object? order = null,
     Object? speaker = freezed,
     Object? desc = freezed,
   }) {
@@ -73,6 +76,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as String,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
       speaker: freezed == speaker
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
@@ -108,6 +115,7 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       {String title,
       String startTime,
       String endTime,
+      int order,
       Speaker? speaker,
       String? desc});
 
@@ -128,6 +136,7 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? title = null,
     Object? startTime = null,
     Object? endTime = null,
+    Object? order = null,
     Object? speaker = freezed,
     Object? desc = freezed,
   }) {
@@ -144,6 +153,10 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as String,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
       speaker: freezed == speaker
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
@@ -163,6 +176,7 @@ class _$_Session implements _Session {
       {required this.title,
       required this.startTime,
       required this.endTime,
+      required this.order,
       this.speaker,
       this.desc});
 
@@ -173,13 +187,15 @@ class _$_Session implements _Session {
   @override
   final String endTime;
   @override
+  final int order;
+  @override
   final Speaker? speaker;
   @override
   final String? desc;
 
   @override
   String toString() {
-    return 'Session(title: $title, startTime: $startTime, endTime: $endTime, speaker: $speaker, desc: $desc)';
+    return 'Session(title: $title, startTime: $startTime, endTime: $endTime, order: $order, speaker: $speaker, desc: $desc)';
   }
 
   @override
@@ -191,13 +207,14 @@ class _$_Session implements _Session {
             (identical(other.startTime, startTime) ||
                 other.startTime == startTime) &&
             (identical(other.endTime, endTime) || other.endTime == endTime) &&
+            (identical(other.order, order) || other.order == order) &&
             (identical(other.speaker, speaker) || other.speaker == speaker) &&
             (identical(other.desc, desc) || other.desc == desc));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, startTime, endTime, speaker, desc);
+      Object.hash(runtimeType, title, startTime, endTime, order, speaker, desc);
 
   @JsonKey(ignore: true)
   @override
@@ -211,6 +228,7 @@ abstract class _Session implements Session {
       {required final String title,
       required final String startTime,
       required final String endTime,
+      required final int order,
       final Speaker? speaker,
       final String? desc}) = _$_Session;
 
@@ -220,6 +238,8 @@ abstract class _Session implements Session {
   String get startTime;
   @override
   String get endTime;
+  @override
+  int get order;
   @override
   Speaker? get speaker;
   @override

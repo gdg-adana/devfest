@@ -10,6 +10,7 @@ abstract class SessionDto with _$SessionDto {
     required String title,
     required String startTime,
     required String endTime,
+    required int order,
     @JsonKey(name: 'speaker') SpeakerDto? speakerDto,
     String? desc,
   }) = _SessionDto;
