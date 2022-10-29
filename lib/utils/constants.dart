@@ -1,3 +1,6 @@
+import 'package:devfest/core/services/config/remote_config_service.dart';
+import 'package:devfest/injection.dart';
+
 class Constants {
   // firestore colletion names
 
@@ -20,30 +23,37 @@ class Constants {
   static const speaker = "Konuşmacı";
   static const sessionDetail = "Konuşma Detayı";
 
-  // assets path
-  static const bannerPath = 'assets/images/devfest_logo.png';
-
   // urls
+
+  static String get _getTwitterUsernameFromRemoteConfig =>
+      getIt<RemoteConfigService>().getString(key: RemoteConfigKey.twitterUsername);
+  static String get _getInstagramUsernameFromRemoteConfig =>
+      getIt<RemoteConfigService>().getString(key: RemoteConfigKey.instagramUsername);
+
+  static String get _getLinkedinCompanyUsernameFromRemoteConfig =>
+      getIt<RemoteConfigService>().getString(key: RemoteConfigKey.linkedinCompanyUsername);
 
   static instagramNativeUrlWithUsername({required String userName}) => 'instagram://user?username=$userName';
   static instagramWebUrlWithUsername({required String userName}) => 'https://www.instagram.com/$userName';
-  static final instagramNativeUrl = instagramNativeUrlWithUsername(userName: 'gdg_adana');
-  static final instagramWebUrl = instagramWebUrlWithUsername(userName: 'gdg_adana');
+  static final instagramNativeUrl = instagramNativeUrlWithUsername(userName: _getInstagramUsernameFromRemoteConfig);
+  static final instagramWebUrl = instagramWebUrlWithUsername(userName: _getInstagramUsernameFromRemoteConfig);
 
   static twitterNativeUrlWithUsername({required String userName}) => 'twitter://user?screen_name=$userName';
   static twitterWebUrlWithUsername({required String userName}) => 'https://www.twitter.com/$userName';
-  static final twitterNativeUrl = twitterNativeUrlWithUsername(userName: 'gdg_adana');
-  static final twitterWebUrl = twitterWebUrlWithUsername(userName: 'gdg_adana');
+  static final twitterNativeUrl = twitterNativeUrlWithUsername(userName: _getTwitterUsernameFromRemoteConfig);
+  static final twitterWebUrl = twitterWebUrlWithUsername(userName: _getTwitterUsernameFromRemoteConfig);
 
   static linkedinNativeUrlWithUsername({required String userName}) => 'linkedin://profile/$userName';
   static linkedinWebUrlWithUsername({required String userName}) => 'https://www.linkedin.com/in/$userName';
-  static const linkedinNativeUrl = 'linkedin://company/gdg-adana';
-  static const linkedinWebUrl = 'https://www.linkedin.com/company/gdg-adana/';
+  static final linkedinNativeUrl = 'linkedin://company/$_getLinkedinCompanyUsernameFromRemoteConfig';
+  static final linkedinWebUrl = 'https://www.linkedin.com/company/$_getLinkedinCompanyUsernameFromRemoteConfig/';
 
-  static const webUrl = 'https://linktr.ee/gdgadana';
+  static final webUrl = getIt<RemoteConfigService>().getString(key: RemoteConfigKey.webUrl);
 
-  static const mailUrl = "mailto:info@gdgadana.org?subject=Devfest'22%20Adana";
-  static const googleMapsUrl = "comgooglemaps://?center=37.0415421,35.3612285";
-  static const googleMapsWebUrl = "https://goo.gl/maps/T42hrWi4DGAZa8E2A";
-  static const appleMapsUrl = "https://maps.apple.com/?q=37.0415421,35.3612285";
+  static final mailUrl = getIt<RemoteConfigService>().getString(key: RemoteConfigKey.mailUrl);
+  static final googleMapsUrl =
+      "comgooglemaps://?center=${getIt<RemoteConfigService>().getString(key: RemoteConfigKey.eventLocation)}";
+  static final googleMapsWebUrl = getIt<RemoteConfigService>().getString(key: RemoteConfigKey.eventGoogleMapsWebUrl);
+  static final appleMapsUrl =
+      "https://maps.apple.com/?q=${getIt<RemoteConfigService>().getString(key: RemoteConfigKey.eventLocation)}";
 }
