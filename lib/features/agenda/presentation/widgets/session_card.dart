@@ -17,22 +17,55 @@ class SessionCard extends StatelessWidget {
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "${session.startTime} - ${session.endTime}",
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              session.title,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    session.title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  session.speaker != null
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              session.speaker!.name,
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "${session.speaker!.title} @${session.speaker!.company}",
+                            ),
+                          ],
+                        )
+                      : const SizedBox(),
+                ],
               ),
-            )
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  session.startTime,
+                ),
+                const Text(
+                  "-",
+                ),
+                Text(session.endTime)
+              ],
+            ),
           ],
         ),
       ),
