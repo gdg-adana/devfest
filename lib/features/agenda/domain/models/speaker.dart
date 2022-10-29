@@ -9,6 +9,7 @@ abstract class Speaker with _$Speaker {
     required String name,
     required String company,
     required String image,
+    required String title,
     String? linkedin,
     String? twitter,
   }) = _Speaker;
@@ -17,6 +18,7 @@ abstract class Speaker with _$Speaker {
         name: dto.name,
         company: dto.company,
         image: dto.image,
+        title: dto.title,
         linkedin: dto.linkedin,
         twitter: dto.twitter,
       );

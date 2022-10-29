@@ -9,6 +9,7 @@ abstract class SpeakerDto with _$SpeakerDto {
     required String name,
     required String company,
     required String image,
+    required String title,
     String? linkedin,
     String? twitter,
   }) = _SpeakerDto;

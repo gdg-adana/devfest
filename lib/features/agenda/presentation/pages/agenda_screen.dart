@@ -54,7 +54,6 @@ class _AgendaScreenState extends State<AgendaScreen> {
                               separatorBuilder: (context, index) => const Divider(),
                               itemCount: state.agendaList![index].sessions.length,
                               itemBuilder: (context, sessionIndex) => SizedBox(
-                                    height: 100,
                                     child: SessionCard(
                                       session: state.agendaList![index].sessions[sessionIndex],
                                     ),

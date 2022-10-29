@@ -23,6 +23,7 @@ mixin _$SpeakerDto {
   String get name => throw _privateConstructorUsedError;
   String get company => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String? get linkedin => throw _privateConstructorUsedError;
   String? get twitter => throw _privateConstructorUsedError;
 
@@ -42,6 +43,7 @@ abstract class $SpeakerDtoCopyWith<$Res> {
       {String name,
       String company,
       String image,
+      String title,
       String? linkedin,
       String? twitter});
 }
@@ -62,6 +64,7 @@ class _$SpeakerDtoCopyWithImpl<$Res, $Val extends SpeakerDto>
     Object? name = null,
     Object? company = null,
     Object? image = null,
+    Object? title = null,
     Object? linkedin = freezed,
     Object? twitter = freezed,
   }) {
@@ -77,6 +80,10 @@ class _$SpeakerDtoCopyWithImpl<$Res, $Val extends SpeakerDto>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       linkedin: freezed == linkedin
           ? _value.linkedin
@@ -102,6 +109,7 @@ abstract class _$$_SpeakerDtoCopyWith<$Res>
       {String name,
       String company,
       String image,
+      String title,
       String? linkedin,
       String? twitter});
 }
@@ -120,6 +128,7 @@ class __$$_SpeakerDtoCopyWithImpl<$Res>
     Object? name = null,
     Object? company = null,
     Object? image = null,
+    Object? title = null,
     Object? linkedin = freezed,
     Object? twitter = freezed,
   }) {
@@ -135,6 +144,10 @@ class __$$_SpeakerDtoCopyWithImpl<$Res>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       linkedin: freezed == linkedin
           ? _value.linkedin
@@ -155,6 +168,7 @@ class _$_SpeakerDto implements _SpeakerDto {
       {required this.name,
       required this.company,
       required this.image,
+      required this.title,
       this.linkedin,
       this.twitter});
 
@@ -168,13 +182,15 @@ class _$_SpeakerDto implements _SpeakerDto {
   @override
   final String image;
   @override
+  final String title;
+  @override
   final String? linkedin;
   @override
   final String? twitter;
 
   @override
   String toString() {
-    return 'SpeakerDto(name: $name, company: $company, image: $image, linkedin: $linkedin, twitter: $twitter)';
+    return 'SpeakerDto(name: $name, company: $company, image: $image, title: $title, linkedin: $linkedin, twitter: $twitter)';
   }
 
   @override
@@ -185,6 +201,7 @@ class _$_SpeakerDto implements _SpeakerDto {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.company, company) || other.company == company) &&
             (identical(other.image, image) || other.image == image) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.linkedin, linkedin) ||
                 other.linkedin == linkedin) &&
             (identical(other.twitter, twitter) || other.twitter == twitter));
@@ -193,7 +210,7 @@ class _$_SpeakerDto implements _SpeakerDto {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, company, image, linkedin, twitter);
+      Object.hash(runtimeType, name, company, image, title, linkedin, twitter);
 
   @JsonKey(ignore: true)
   @override
@@ -214,6 +231,7 @@ abstract class _SpeakerDto implements SpeakerDto {
       {required final String name,
       required final String company,
       required final String image,
+      required final String title,
       final String? linkedin,
       final String? twitter}) = _$_SpeakerDto;
 
@@ -226,6 +244,8 @@ abstract class _SpeakerDto implements SpeakerDto {
   String get company;
   @override
   String get image;
+  @override
+  String get title;
   @override
   String? get linkedin;
   @override
