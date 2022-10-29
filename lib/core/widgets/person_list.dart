@@ -37,6 +37,7 @@ class PersonList extends StatelessWidget {
                 linkedin: speakers![index].linkedin!,
                 twitter: speakers![index].twitter!,
                 company: speakers![index].company,
+                title: speakers![index].title,
               ),
       ),
     );

@@ -11,17 +11,16 @@ class PersonCard extends StatelessWidget {
     required this.image,
     required this.linkedin,
     required this.twitter,
-    this.title,
+    required this.title,
     this.company,
     this.onTap,
-  })  : assert(title != null || company != null),
-        super(key: key);
+  }) : super(key: key);
 
   final String name;
   final String image;
   final String linkedin;
   final String twitter;
-  final String? title;
+  final String title;
   final String? company;
   final VoidCallback? onTap;
   @override
@@ -58,9 +57,11 @@ class PersonCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    title ?? company!,
+                  const SizedBox(
+                    height: 5,
                   ),
+                  Text(title),
+                  company != null ? Text("@$company") : const SizedBox(),
                   const Spacer(),
                   Row(
                     children: [
