@@ -19,7 +19,7 @@ class SessionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: session.speaker != null
+      onTap: session.speaker == null
           ? null
           : () {
               Navigator.of(context).push(
