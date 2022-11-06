@@ -4,6 +4,7 @@ import 'package:devfest/firebase_options.dart';
 import 'package:devfest/injection.dart';
 import 'package:devfest/utils/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await FirebaseMessaging.instance.setAutoInitEnabled(true);
+  await FirebaseMessaging.instance.subscribeToTopic('all');
   configureDependencies();
   final remoteConfig = FirebaseRemoteConfig.instance;
   await remoteConfig.setConfigSettings(RemoteConfigSettings(
@@ -27,8 +30,8 @@ Future<void> main() async {
     RemoteConfigKey.instagramUsername.name: "gdg_adana",
     RemoteConfigKey.mailUrl.name: "mailto:info@gdgadana.org?subject=Devfest'22%20Adana",
     RemoteConfigKey.webUrl.name: "https://linktr.ee/gdgadana",
-    RemoteConfigKey.eventLocation.name: "37.0415421,35.3612285",
-    RemoteConfigKey.eventGoogleMapsWebUrl.name: "https://goo.gl/maps/T42hrWi4DGAZa8E2A",
+    RemoteConfigKey.eventLocation.name: "37.0346193,35.2556483",
+    RemoteConfigKey.eventGoogleMapsWebUrl.name: "https://goo.gl/maps/RGYmHmpz1Go9WBm27",
   });
   await remoteConfig.fetchAndActivate();
   runApp(const MyApp());
