@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:devfest/core/services/config/remote_config_service.dart';
 import 'package:devfest/core/services/url/url_service.dart';
 import 'package:devfest/features/agenda/presentation/pages/agenda_screen.dart';
 import 'package:devfest/features/faq/presentation/pages/faq_screen.dart';
@@ -12,6 +13,7 @@ import 'package:devfest/injection.dart';
 import 'package:devfest/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:storyly_flutter/storyly_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -140,6 +142,18 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            if (getIt<RemoteConfigService>().getBool(key: RemoteConfigKey.isStorylyEnabled))
+              Expanded(
+                flex: 6,
+                child: StorylyView(
+                  onStorylyViewCreated: (controller) {},
+                  androidParam: StorylyParam()
+                    ..storylyId = getIt<RemoteConfigService>().getString(key: RemoteConfigKey.storylyAndroidKey),
+                  iosParam: StorylyParam()
+                    ..storylyId = getIt<RemoteConfigService>().getString(key: RemoteConfigKey.storylyIOSKey),
+                ),
+              ),
+            const Spacer(),
             const EventBanner(),
             const Spacer(),
             GridView.builder(
@@ -163,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const Spacer(
-              flex: 10,
+              flex: 8,
             ),
           ],
         ),

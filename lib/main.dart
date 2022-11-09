@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: getIt<RemoteConfigService>().getString(key: RemoteConfigKey.appTitle),
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white.withOpacity(0.9),

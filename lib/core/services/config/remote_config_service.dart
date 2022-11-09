@@ -11,6 +11,9 @@ enum RemoteConfigKey {
   mailUrl,
   eventGoogleMapsWebUrl,
   eventLocation,
+  isStorylyEnabled,
+  storylyAndroidKey,
+  storylyIOSKey
 }
 
 @singleton
@@ -21,6 +24,10 @@ class RemoteConfigService {
 
   String getString({required RemoteConfigKey key}) {
     return _firebaseRemoteConfig.getString(key.name);
+  }
+
+  bool getBool({required RemoteConfigKey key}) {
+    return _firebaseRemoteConfig.getBool(key.name);
   }
 }
 

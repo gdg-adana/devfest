@@ -810,6 +810,10 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
+  - Storyly (1.26.2)
+  - storyly_flutter (1.26.0):
+    - Flutter
+    - Storyly (~> 1.26.0)
   - url_launcher_ios (0.0.1):
     - Flutter
 
@@ -820,6 +824,7 @@ DEPENDENCIES:
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - Flutter (from `Flutter`)
+  - storyly_flutter (from `.symlinks/plugins/storyly_flutter/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
@@ -845,6 +850,7 @@ SPEC REPOS:
     - Libuv-gRPC
     - nanopb
     - PromisesObjC
+    - Storyly
 
 EXTERNAL SOURCES:
   cloud_firestore:
@@ -859,6 +865,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_remote_config/ios"
   Flutter:
     :path: Flutter
+  storyly_flutter:
+    :path: ".symlinks/plugins/storyly_flutter/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
@@ -890,6 +898,8 @@ SPEC CHECKSUMS:
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  Storyly: 9f7694d816cbe22d1d5604b7653e75feabf1915f
+  storyly_flutter: 7b21add753cd8407b88fcbcfce32e06e1a20b798
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
