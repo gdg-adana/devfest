@@ -1,4 +1,4 @@
-# GDG DEVFEST APP 
+# GDG DevFest App 
 
 <p align="center">
 <img width="800px"  src="https://firebasestorage.googleapis.com/v0/b/devfest-adana-6723f.appspot.com/o/devfest-generic.png?alt=media">
