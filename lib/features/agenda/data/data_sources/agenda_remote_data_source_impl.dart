@@ -21,7 +21,7 @@ class AgendaRemoteDataSourceImpl implements AgendaRemoteDataSource {
       throw (FirestoreException(
         e,
         stackTrace: StackTrace.current,
-        description: 'Something went wrong during getting faq from firestore',
+        description: 'Something went wrong during getting agenda from firestore',
       ));
     }
   }

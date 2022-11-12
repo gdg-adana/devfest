@@ -144,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             if (getIt<RemoteConfigService>().getBool(key: RemoteConfigKey.isStorylyEnabled))
               Expanded(
-                flex: 6,
+                flex: 8,
                 child: StorylyView(
                   onStorylyViewCreated: (controller) {},
                   androidParam: StorylyParam()

@@ -1,20 +1,14 @@
-import 'dart:math' as math;
-
 import 'package:devfest/features/agenda/domain/models/session.dart';
 import 'package:devfest/features/agenda/presentation/pages/session_detail.dart';
 import 'package:flutter/material.dart';
 
 class SessionCard extends StatelessWidget {
-  SessionCard({
+  const SessionCard({
     Key? key,
     required this.session,
   }) : super(key: key);
 
   final Session session;
-
-  final List<Color> _colors = [Colors.yellow.shade600, Colors.blue.shade600, Colors.green.shade600];
-
-  Color get _getRandomColor => _colors[math.Random().nextInt(3)];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +23,7 @@ class SessionCard extends StatelessWidget {
               );
             },
       child: Card(
-        color: session.speaker != null ? _getRandomColor : Colors.red.shade600,
+        color: session.speaker != null ? Colors.green.shade600 : Colors.red.shade600,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 5,
         child: Padding(
