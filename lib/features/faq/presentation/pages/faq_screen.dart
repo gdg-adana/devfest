@@ -58,8 +58,10 @@ class _FAQScreenState extends State<FAQScreen> {
                         padding: const EdgeInsets.only(left: 16.0, bottom: 16),
                         child: Row(
                           children: [
-                            Text(
-                              state.faq![index].answer,
+                            Expanded(
+                              child: Text(
+                                state.faq![index].answer,
+                              ),
                             ),
                           ],
                         ),

@@ -23,16 +23,27 @@ class SessionDetail extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    session.title,
-                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Text(
+                      session.title,
+                      overflow: TextOverflow.visible,
+                      style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
                   ),
                   Text(
                     "${session.startTime} - ${session.endTime}",
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
             ),
+            const Spacer(),
             Text(session.desc!),
             const Spacer(
               flex: 5,
@@ -45,7 +56,7 @@ class SessionDetail extends StatelessWidget {
               height: 10,
             ),
             Expanded(
-              flex: 2,
+              flex: 4,
               child: PersonCard(
                 title: session.speaker!.title,
                 name: session.speaker!.name,

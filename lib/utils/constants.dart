@@ -16,9 +16,9 @@ class Constants {
   static const home = "Ana Sayfa";
   static const agenda = "Ajanda";
   static const speakers = "Konuşmacılar";
-  static const team = "Takım";
+  static const team = "Organizasyon Ekibi";
   static const sponsors = "Sponsorlar";
-  static const faq = "SSS";
+  static const faq = "Sıkça Sorulan Sorular";
   static const locateUs = "Konum";
   static const speaker = "Konuşmacı";
   static const sessionDetail = "Konuşma Detayı";

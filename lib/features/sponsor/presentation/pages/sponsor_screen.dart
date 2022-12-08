@@ -59,15 +59,19 @@ class _SponsorScreenState extends State<SponsorScreen> {
                           final url = state.sponsors![index].url;
                           getIt<UrlService>().launchURl(webUrl: url, nativeUrl: url);
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                        child: SizedBox(
+                          height: 200,
+                          width: double.infinity,
                           child: Card(
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                             elevation: 10,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.network(
-                                state.sponsors![index].image,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: Image.network(
+                                  state.sponsors![index].image,
+                                ),
                               ),
                             ),
                           ),

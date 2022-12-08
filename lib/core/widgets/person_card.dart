@@ -27,68 +27,81 @@ class PersonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        elevation: 5,
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16),
-                bottomLeft: Radius.circular(16),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          elevation: 5,
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  bottomLeft: Radius.circular(16),
+                ),
+                child: Image.network(
+                  image,
+                  fit: BoxFit.cover,
+                  width: 150,
+                  height: 200,
+                ),
               ),
-              child: Image.network(
-                image,
-                fit: BoxFit.cover,
-                width: 150,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(title),
-                  company != null ? Text("@$company") : const SizedBox(),
-                  const Spacer(),
-                  Row(
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      IconButton(
-                        onPressed: () {
-                          getIt<UrlService>().launchURl(
-                            webUrl: Constants.linkedinWebUrlWithUsername(userName: linkedin),
-                            nativeUrl: Constants.linkedinNativeUrlWithUsername(userName: linkedin),
-                          );
-                        },
-                        icon: const FaIcon(FontAwesomeIcons.linkedin),
+                      Text(
+                        name,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          getIt<UrlService>().launchURl(
-                            webUrl: Constants.twitterWebUrlWithUsername(userName: twitter),
-                            nativeUrl: Constants.twitterNativeUrlWithUsername(userName: twitter),
-                          );
-                        },
-                        icon: const FaIcon(FontAwesomeIcons.twitter),
+                      const SizedBox(
+                        height: 5,
                       ),
+                      Text(
+                        title,
+                      ),
+                      const Spacer(),
+                      company != null
+                          ? Text(
+                              "@$company",
+                            )
+                          : const SizedBox(),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              getIt<UrlService>().launchURl(
+                                webUrl: Constants.linkedinWebUrlWithUsername(userName: linkedin),
+                                nativeUrl: Constants.linkedinNativeUrlWithUsername(userName: linkedin),
+                              );
+                            },
+                            icon: const FaIcon(FontAwesomeIcons.linkedin),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              getIt<UrlService>().launchURl(
+                                webUrl: Constants.twitterWebUrlWithUsername(userName: twitter),
+                                nativeUrl: Constants.twitterNativeUrlWithUsername(userName: twitter),
+                              );
+                            },
+                            icon: const FaIcon(FontAwesomeIcons.twitter),
+                          ),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            )
-          ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

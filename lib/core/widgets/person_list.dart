@@ -22,7 +22,7 @@ class PersonList extends StatelessWidget {
       separatorBuilder: (context, index) => const Divider(),
       itemCount: itemCount,
       itemBuilder: (context, index) => SizedBox(
-        height: 150,
+        height: MediaQuery.of(context).size.height * 0.25,
         child: isMemberList
             ? PersonCard(
                 name: members![index].name,

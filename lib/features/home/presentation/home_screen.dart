@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             text: Constants.locateUs,
             iconColor: Colors.blue,
-            iconData: Icons.map),
+            iconData: Icons.pin_drop),
       ];
   List<Widget> get icons => [
         IconButton(
@@ -153,7 +153,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ..storylyId = getIt<RemoteConfigService>().getString(key: RemoteConfigKey.storylyIOSKey),
                 ),
               ),
-            const Spacer(),
+            const Spacer(
+              flex: 5,
+            ),
             const EventBanner(),
             const Spacer(),
             GridView.builder(
