@@ -24,6 +24,8 @@
 
 DevFest Mobile application is for all the GDG Devfests around the world. You can see the agenda, speakers, organizers, sponsors, faq. It's fully customizable from Remote Config.
 
+## Flutter Version
+ * 3.3.0
 
 ## Technology Stack
 - Storyly
